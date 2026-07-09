@@ -129,3 +129,194 @@
 //     }
 
 // }
+
+
+
+
+// Max Subarray Sum
+// import java.util.*;
+// public class ArrayP{
+//     public static void maxSubarraySum(int numbers[]){
+//         int currSum=0;
+//         int maxSum=Integer.MIN_VALUE;
+
+//         for(int i=0;i<numbers.length;i++){
+//             int start=i;
+
+//             for(int j=i;j<numbers.length;j++){
+//                 int end=j;
+//                 currSum=0;
+
+//                 for(int k=start;k<=end;k++){
+//                     currSum+=numbers[k];
+//                 }
+
+//                 System.out.println(currSum);
+//                 if(maxSum<currSum){
+//                     maxSum=currSum;
+//                 }
+
+//             }
+//         }
+//         System.out.println("max sum="+ maxSum);
+//     }
+//     public static void main(String args[]){
+//         int numbers[]={2,4,6,8,10};
+//         maxSubarraySum(numbers);
+//     }
+// }
+
+
+// import java.util.*;
+// public class ArrayP{
+//     public static  void maxSubarraySum(int numbers[]){
+//         int currSum=0;
+//         int maxSum=Integer.MAX_VALUE;
+//         int prefix[]=new int[numbers.length];
+
+//         prefix[0]=numbers[0];
+
+//         for(int i=1;i<prefix.length;i++){
+//             prefix[i]=prefix[i-1]+numbers[i];
+//         }
+
+//         for(int i=0;i<numbers.length;i++){
+//             int start=i;
+//             for(int j=i;j<numbers.length;j++){
+//                 int end=j;
+
+//                 currSum=start==0?prefix[end]:prefix[end]-prefix[start-1];
+
+//                 if(maxSum<currSum){
+//                     maxSum=currSum;
+//                 }
+
+//             }
+//         }
+//         System.out.println("max sum =" + maxSum);
+//     }
+   
+
+// public static void main(String args[]){
+//     int numbers[]={1,-2,6,-1,3};
+//     maxSubarraySum(numbers);
+// }
+// }
+
+//kadanes 
+// import java.util.*;
+
+// public class ArrayP {
+
+//     public static void Kadanes(int numbers[]) {
+
+//         int ms = Integer.MIN_VALUE;
+//         int cs = 0;
+
+//         for (int i = 0; i < numbers.length; i++) {
+
+//             cs = cs + numbers[i];
+
+//             if (cs < 0) {
+//                 cs = 0;
+//             }
+
+//             ms = Math.max(cs, ms);
+//         }
+
+//         System.out.println("Our max subarray sum is: " + ms);
+//     }
+
+//     public static void main(String args[]) {
+
+//         int numbers[] = {-2, -3, 4, -1, -2, 1, 5, -3};
+
+//         Kadanes(numbers);
+
+//     }
+// }
+
+
+
+//traped rain water 
+// import java.util.*;
+
+// public class ArrayP {
+
+//     public static int trappedRainWater(int height[]) {
+
+//         int n = height.length;
+
+//         // Calculate left max boundary
+//         int leftMax[] = new int[n];
+//         leftMax[0] = height[0];
+
+//         for (int i = 1; i < n; i++) {
+//             leftMax[i] = Math.max(height[i], leftMax[i - 1]);
+//         }
+
+//         // Calculate right max boundary
+//         int rightMax[] = new int[n];
+//         rightMax[n - 1] = height[n - 1];
+
+//         for (int i = n - 2; i >= 0; i--) {
+//             rightMax[i] = Math.max(height[i], rightMax[i + 1]);
+//         }
+
+//         // Calculate trapped water
+//         int trappedWater = 0;
+
+//         for (int i = 0; i < n; i++) {
+
+//             int waterLevel = Math.min(leftMax[i], rightMax[i]);
+
+//             trappedWater += waterLevel - height[i];
+//         }
+
+//         return trappedWater;
+//     }
+
+//     public static void main(String args[]) {
+
+//         int height[] = {4, 2, 0, 6, 3, 2, 5};
+
+//         System.out.println("Trapped Rain Water = " + trappedRainWater(height));
+//     }
+// }
+
+
+
+//sell or buy stock
+// import java.util.*;
+
+// public class ArrayP {
+
+//     public static int buyAndSellStocks(int prices[]) {
+
+//         int buyPrice = Integer.MAX_VALUE;
+//         int maxProfit = 0;
+
+//         for (int i = 0; i < prices.length; i++) {
+
+//             if (buyPrice < prices[i]) {
+
+//                 int profit = prices[i] - buyPrice;
+//                 maxProfit = Math.max(maxProfit, profit);
+
+//             } else {
+
+//                 buyPrice = prices[i];
+
+//             }
+//         }
+
+//         return maxProfit;
+//     }
+
+//     public static void main(String args[]) {
+
+//         int prices[] = {7, 1, 5, 3, 6, 4};
+
+//         System.out.println("Maximum Profit = " + buyAndSellStocks(prices));
+//     }
+// }
