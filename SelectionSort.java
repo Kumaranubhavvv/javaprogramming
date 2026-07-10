@@ -474,19 +474,108 @@
 
 
 
+// import java.util.*;
+// public class practice{
+//     public static void main(String args[]){
+//         int marks[]=new int[100];
+//         Scanner sc =new Scanner(System.in);
+
+//         marks[0]=sc.nextInt();
+//         marks[1]=sc.nextInt();
+//         marks[2]=sc.nextInt();
+
+//         System.out.println("phy:"+marks[0]);
+//         System.out.println("chem:"+ marks[1]);
+//         System.out.println("maths:"+ marks[2]);
+
+//     }
+// }
+
+
+//bubble Sort
+// import java.util.*;
+
+// public class BasicSorting {
+
+//     public static void bubbleSort(int arr[]) {
+
+//         for (int turn = 0; turn < arr.length - 1; turn++) {
+
+//             for (int j = 0; j < arr.length - 1 - turn; j++) {
+
+//                 if (arr[j] > arr[j + 1]) {
+
+//                     int temp = arr[j];
+//                     arr[j] = arr[j + 1];
+//                     arr[j + 1] = temp;
+
+//                 }
+//             }
+//         }
+//     }
+
+//     public static void PrintArr(int arr[]) {
+
+//         for (int i = 0; i < arr.length; i++) {
+//             System.out.print(arr[i] + " ");
+//         }
+
+//         System.out.println();
+//     }
+
+//     public static void main(String args[]) {
+
+//         int arr[] = {5, 4, 1, 3, 2};
+
+//         bubbleSort(arr);
+//         PrintArr(arr);
+
+//     }
+// }
+
+
+//SELECTION SORT
+
+
+
 import java.util.*;
-public class practice{
-    public static void main(String args[]){
-        int marks[]=new int[100];
-        Scanner sc =new Scanner(System.in);
 
-        marks[0]=sc.nextInt();
-        marks[1]=sc.nextInt();
-        marks[2]=sc.nextInt();
+public class SelectionSort {
 
-        System.out.println("phy:"+marks[0]);
-        System.out.println("chem:"+ marks[1]);
-        System.out.println("maths:"+ marks[2]);
+    public static void SelectionSort(int arr[]) {
 
+        for (int i = 0; i < arr.length - 1; i++) {
+
+            int minPos = i;
+
+            for (int j = i + 1; j < arr.length; j++) {
+
+                if (arr[minPos] > arr[j]) {
+                    minPos = j;
+                }
+            }
+
+            // Swap
+            int temp = arr[minPos];
+            arr[minPos] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    public static void PrintArr(int arr[]) {
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+
+        int arr[] = {5, 4, 1, 3, 2};
+
+        SelectionSort(arr);
+        PrintArr(arr);
     }
 }
