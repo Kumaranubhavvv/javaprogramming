@@ -1,26 +1,31 @@
 import java.util.*;
 
-public class hollow_rectangle{
-    public static void hollow_rectangle(int totRows,int totCols){
-        //outer loop
-        for(int i=1;i<=totRows;i++){
+public class hollow_rectangle {
 
-            //inner-columns
-            for(int j=1;j<=totCols;j++){
-                if(i==1||i==totRows||j==1||j==totCols){
-                    //boundaries cells
-                    System.out.println("*");
-                }else{
-                    System.out.print("");
+    public static void hollow_rectangle(int totRows, int totCols) {
+
+        // Outer loop
+        for (int i = 1; i <= totRows; i++) {
+
+            // Inner loop
+            for (int j = 1; j <= totCols; j++) {
+
+                if (i == 1 || i == totRows || j == 1 || j == totCols) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
                 }
             }
+
             System.out.println();
         }
     }
-   public static void main(String args[]){
-    hollow_rectangle(4, 5);
-   }
-}
 
+    public static void main(String args[]) {
+
+        hollow_rectangle(4, 5);
+
+    }
+}
     
 

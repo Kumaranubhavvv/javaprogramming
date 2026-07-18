@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CountingSort {
+public class countingSort {
 
     public static void countingSort(int arr[]) {
 
